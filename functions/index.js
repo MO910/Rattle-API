@@ -1,6 +1,7 @@
 const express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
+	serverless = require("serverless-http"),
 	authAPIRout = require("./routes/users"),
 	cors = require("cors");
 // GraphQL
@@ -27,9 +28,11 @@ app.use(
 	}),
 );
 // Routs
-app.use("/auth", authAPIRout);
+// app.use("/auth", authAPIRout);
+app.use("/", authAPIRout);
 // Exports
 // module.exports = app;
-const listener = app.listen(8888, function () {
-	console.log("Listening on port " + listener.address().port); //Listening on port 8888
-});
+// const listener = app.listen(8888, function () {
+// 	console.log("Listening on port " + listener.address().port); //Listening on port 8888
+// });
+module.exports.handler = serverless(app);
