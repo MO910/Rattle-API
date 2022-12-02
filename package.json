@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "netlify-lambda serve src"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src"
   },
   "dependencies": {
     "body-parser": "^1.20.1",

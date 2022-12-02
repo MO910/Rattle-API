@@ -2,11 +2,11 @@ const express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
 	serverless = require("serverless-http"),
-	authAPIRout = require("./routes/users"),
+	authAPIRout = require("../routes/users"),
 	cors = require("cors");
 // GraphQL
 const { graphqlHTTP } = require("express-graphql");
-const schema = require("./graphQl/schema");
+const schema = require("../graphQl/schema");
 // Mongoose Setup
 const mongoose = require("mongoose");
 const uri =
@@ -17,7 +17,10 @@ mongoose
 		useUnifiedTopology: true,
 	})
 	.then(async () => {
-		app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); // here disable graphial = false
+		app.use(
+			"/.netlify/functions/api/graphql",
+			graphqlHTTP({ schema, graphiql: true }),
+		); // here disable graphial = false
 	});
 // bodyParser
 app.use(cors());
@@ -29,7 +32,7 @@ app.use(
 );
 // Routs
 // app.use("/auth", authAPIRout);
-app.use("/", authAPIRout);
+app.use("/.netlify/functions/api", authAPIRout);
 // Exports
 // module.exports = app;
 // const listener = app.listen(8888, function () {
