@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "netlify-lambda serve src",
-    "build": ""
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.1",
