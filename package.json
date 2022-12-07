@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "nodemon index.js",
-    "build": "" 
+    "build": "npm" 
   },
   "dependencies": {
     "body-parser": "^1.20.1",
