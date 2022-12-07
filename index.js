@@ -5,8 +5,8 @@ const express = require("express"),
 	authAPIRout = require("./routes/users"),
 	cors = require("cors");
 // GraphQL
-const { graphqlHTTP } = require("express-graphql");
-const schema = require("./graphQl/schema");
+// const { graphqlHTTP } = require("express-graphql");
+// const schema = require("./graphQl/schema");
 // Mongoose Setup
 const mongoose = require("mongoose");
 const uri =
@@ -17,7 +17,8 @@ mongoose
 		useUnifiedTopology: true,
 	})
 	.then(async () => {
-		app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); // here disable graphial = false
+		console.log("fdssssssssssssssssssssssssssssssssssssssssssssss");
+		// app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); // here disable graphial = false
 	});
 // bodyParser
 app.use(cors());
