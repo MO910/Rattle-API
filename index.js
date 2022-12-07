@@ -31,9 +31,10 @@ app.use(
 // Routs
 // app.use("/auth", authAPIRout);
 app.use("/api", authAPIRout);
-// Exports
-// module.exports = app;
-const listener = app.listen(8888, function () {
+// listening
+const PORT = process.env.PORT || 5000;
+const listener = app.listen(PORT, function () {
 	console.log("Listening on port " + listener.address().port); //Listening on port 8888
 });
+module.exports = app;
 // module.exports.handler = serverless(app);
