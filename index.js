@@ -4,8 +4,8 @@ const express = require("express"),
 	authAPIRout = require("./routes/users"),
 	cors = require("cors");
 // GraphQL
-const { graphqlHTTP } = require("express-graphql");
-// const schema = require("./graphQl/schema");
+const { graphqlHTTP } = require("express-graphql"),
+	schema = require("./graphQl/schema");
 // Mongoose Setup
 const mongoose = require("mongoose");
 const uri =
