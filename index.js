@@ -8,16 +8,16 @@ const { graphqlHTTP } = require("express-graphql"),
 	schema = require("./graphQl/schema");
 // Mongoose Setup
 const mongoose = require("mongoose");
-const uri =
+const url =
 	"mongodb+srv://SHARK:XJ9WcIYAV5UmFJjc@cluster0.qibbwql.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-	.connect(uri, {
+	.connect(url, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
 	.then(async () => {
-		console.log("fdssssssssssssssssssssssssssssssssssssssssssssss");
 		app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); // here disable graphial = false
+		console.log("fssssssssssssssssssssssssssssssssssssssssssssss");
 	});
 // bodyParser
 app.use(cors());
@@ -29,6 +29,11 @@ app.use(
 );
 // Routs
 app.use("/api", authAPIRout);
+app.get("/", (req, res) => {
+	res.json({
+		msg: "helllo",
+	});
+});
 // listening
 const PORT = process.env.PORT || 5000;
 const listener = app.listen(PORT, function () {
