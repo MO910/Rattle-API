@@ -18,7 +18,8 @@ mongoose
 	.then(async () => {
 		app.use("/graphql", graphqlHTTP({ schema, graphiql: true })); // here disable graphial = false
 		console.log("fssssssssssssssssssssssssssssssssssssssssssssss");
-	});
+	})
+	.catch((err) => console.log("errrrrrrrrrrrrror", err));
 // bodyParser
 app.use(cors());
 app.use(express.json());
